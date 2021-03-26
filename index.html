@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>色あてゲーム</title>
+</head>
+<body>
+    <section class="container">
+        <div class="title">上の色と同じにしよう！(スポイトは使わないでね)</div>
+        <div>
+            <canvas id="target"></canvas>
+            <canvas id="source"></canvas>
+        </div>
+        <div>
+            <input type="color" name="colorpicker" id="colorpicker" value="#FFFFFFF">
+        </div>
+        <input type="button" value="result" id="result" class="btn">
+        <div id="result_text">結果：</div>
+
+        <input type="button" value="reset" id="reset" class="btn">
+    </section>
+    <script src="./color.js"></script>
+</body>
+</html>

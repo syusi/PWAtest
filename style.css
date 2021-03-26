@@ -1,0 +1,29 @@
+@charset 'UTF-8';
+
+.title{
+    font-size: 20px;
+    margin: 10px 0 20px;
+}
+
+canvas {
+    background-color: black;
+}
+.btn {
+    display: inline-block;
+    margin: 30px 0 0;
+    padding: 15px 60px;
+    border: none;
+    border-radius: 10px;
+    background-color: #54bbc1;
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+.container {
+    padding: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 16px;
+}
