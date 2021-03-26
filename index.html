@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <title>色あてゲーム</title>
+    <!-- ServiceWorkerの登録 -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').then((reg) => {
+                console.log('Service worker registered.',reg);
+            });
+        }
+    </script>
 </head>
 <body>
     <section class="container">
