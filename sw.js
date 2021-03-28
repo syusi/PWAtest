@@ -8,15 +8,15 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 // ファイルのキャッシュ
 workbox.precaching.precacheAndRoute([
   {
-    url: '/index.html',
+    url: 'index.html',
     revision: '1'
   },
   {
-    url: '/style.css',
+    url: 'style.css',
     revision: '1'
   },
   { 
-　url: '/color.js',
+　url: 'color.js',
     revision: '1'
   },
 ])
