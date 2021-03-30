@@ -1,5 +1,3 @@
-import {testNotification} from './notification.js'
-
 
 //ここでのselfは自分自身、つまりsw.jsの事らしい。登録するとそのままオブジェクトになる？
 self.addEventListener('fetch',function(e) {
@@ -30,8 +28,22 @@ workbox.precaching.precacheAndRoute([
 self.addEventListener('push',function (event) {
   console.log(`[Service worker] push Received. Data: "${event.data.text()}"`);
 
-  testNotification('Push');
+  const title = "New Notification!!";
 
+  const option = {
+      body: 'Test '+params+' notification desu!!',
+      icon: 'icons/icon-192x192.png'
+  }
+
+  new Notification(title,option);
+}
 
 });
 // 通知をクリックしたとき
+self.addEventListener('notificationclick',function(event) {
+  console.log('[Service worker] Notification click Received');
+
+  event.notification.close();
+
+  window.open("https://www.google.com", "google");
+});
