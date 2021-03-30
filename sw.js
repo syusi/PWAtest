@@ -6,7 +6,7 @@ self.addEventListener('fetch',function(e) {
 
 // 愚直に実装するならこっちhttps://mdn.github.io/pwa-examples/js13kpwa/
 // ファイブラリのインポート
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js')
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
 
 // ファイルのキャッシュ
 workbox.precaching.precacheAndRoute([
@@ -22,20 +22,21 @@ workbox.precaching.precacheAndRoute([
 　url: 'color.js',
     revision: '1'
   },
-])
+]);
 
 // プッシュ通知を受け取った時
+// そのままnotificationはダメ見たいですね。
 self.addEventListener('push',function (event) {
   console.log(`[Service worker] push Received. Data: "${event.data.text()}"`);
 
-  const title = "New Notification!!";
+  // const title = "New Notification!!";
 
-  const option = {
-      body: 'Push notification desu!!',
-      icon: 'icons/icon-192x192.png'
-  }
+  // const option = {
+  //     body: 'Push notification desu!!',
+  //     icon: 'icons/icon-192x192.png'
+  // }
 
-  new Notification(title,option);
+  // new Notification(title,option);
 });
 
 // 通知をクリックしたとき

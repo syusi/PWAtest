@@ -1,15 +1,22 @@
-Notification.requestPermission().then((result) =>{
-    if (result == 'granted') {
-        testNotification('first');
-    } else if (result == 'denied') {
-        console.log('notificatin denied');
-    } else if (result == 'default'){
-        console.log('notificatin ignored');
-    } else {
-        testNotification('else');
-    }
-    console.log('request permission run');
-});
+
+const notificatin_button = document.getElementById("notification");
+
+notificatin_button.addEventListener('click',(event)=>{init_notification_Permission()});
+
+function init_notification_Permission() {
+    Notification.requestPermission().then((result) =>{
+        if (result == 'granted') {
+            testNotification('first');
+        } else if (result == 'denied') {
+            console.log('notificatin denied');
+        } else if (result == 'default'){
+            console.log('notificatin ignored');
+        } else {
+            testNotification('else');
+        }
+        console.log('request permission run');
+    });    
+}
 
 function testNotification(params) {
     const title = "New Notification!!";
