@@ -31,7 +31,7 @@ self.addEventListener('push',function (event) {
   const title = "New Notification!!";
 
   const option = {
-      body: 'Test '+params+' notification desu!!',
+      body: 'Push notification desu!!',
       icon: 'icons/icon-192x192.png'
   }
 
