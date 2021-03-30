@@ -1,3 +1,5 @@
+import {testNotification} from './notification.js'
+
 
 //ここでのselfは自分自身、つまりsw.jsの事らしい。登録するとそのままオブジェクトになる？
 self.addEventListener('fetch',function(e) {
