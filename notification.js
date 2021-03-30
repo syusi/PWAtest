@@ -8,7 +8,7 @@ Notification.requestPermission().then((result) =>{
     } else {
         testNotification('else');
     }
-    console.log('request permission');
+    console.log('request permission run');
 });
 
 function testNotification(params) {
