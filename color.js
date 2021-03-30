@@ -32,6 +32,7 @@ result_button.addEventListener('click',function(event) {
 
 reset_button.addEventListener('click',function(event) {
     result_text.innerText = '結果：';
+    testNotification('reset');
     init_color();
 });
 
