@@ -1,3 +1,5 @@
+
+//ここでのselfは自分自身、つまりsw.jsの事らしい。登録するとそのままオブジェクトになる？
 self.addEventListener('fetch',function(e) {
     //空でもokらしい
 });
@@ -21,3 +23,13 @@ workbox.precaching.precacheAndRoute([
     revision: '1'
   },
 ])
+
+// プッシュ通知を受け取った時
+self.addEventListener('push',function (event) {
+  console.log(`[Service worker] push Received. Data: "${event.data.text()}"`);
+
+  testNotification('Push');
+
+
+});
+// 通知をクリックしたとき
