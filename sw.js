@@ -23,8 +23,26 @@ workbox.precaching.precacheAndRoute([
   }
 ]);
 
+//インストール時のイベント、キャッシュとか色々ここで確保できる。
+self.addEventListener('install',(event)=>{
+  console.log('[Service Worker] Install');
+
+  //キャッシュを手動で行うならこんな感じ
+  // event.waitUntil(
+  //   caches.open('testcache-v1').then((cache)=>{
+  //       console.log('Service Worker] caching all; app shell and content');
+  //       return cache.addAll(contentCachelist);
+  //   })
+  // )
+});
+
+//アクティベーション
+self.addEventListener('activate',(event) =>{
+  console.log('[Service worker] Activate');
+});
 
 //ここでのselfは自分自身、つまりsw.jsの事らしい。登録するとそのままオブジェクトになる？
+//何かを取りに行こうとするときに呼ばれる。ここで加工が可能になる。
 self.addEventListener('fetch',function(e) {
   //空でもokらしい
   console.log('fetch URL'+e.request.url);
