@@ -1,10 +1,4 @@
 
-//ここでのselfは自分自身、つまりsw.jsの事らしい。登録するとそのままオブジェクトになる？
-self.addEventListener('fetch',function(e) {
-    //空でもokらしい
-    console.log('fetch URL'+e.request.url);
-});
-
 // 愚直に実装するならこっちhttps://mdn.github.io/pwa-examples/js13kpwa/
 // ファイブラリのインポート
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
@@ -20,19 +14,30 @@ workbox.precaching.precacheAndRoute([
     revision: '1'
   },
   { 
-　url: 'color.js',
-    revision: '1'
+　  url: 'color.js',
+    revision: '2'
   },
+  {
+    url: 'notification.js',
+    revision: '1'
+  }
 ]);
 
+
+//ここでのselfは自分自身、つまりsw.jsの事らしい。登録するとそのままオブジェクトになる？
+self.addEventListener('fetch',function(e) {
+  //空でもokらしい
+  console.log('fetch URL'+e.request.url);
+});
+
 // プッシュ通知を受け取った時
-// そのままnotificationはダメ見たいですね。
+// そのままnotificationはダメ見たいですね。どうやらregistrationが必要みたい。
 self.addEventListener('push',function (event) {
   console.log(`[Service worker] push Received. Data: "${event.data.text()}"`);
 
   event.waitUntil(
     self.registration.showNotification('Push Notification',{
-      body: 'Push notification desu!!',
+      body: `Push notification "${event.data.text()}"`,
       icon: 'icons/icon-192x192.png'
     })
 
