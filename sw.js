@@ -31,7 +31,7 @@ self.addEventListener('push',function (event) {
   console.log(`[Service worker] push Received. Data: "${event.data.text()}"`);
 
   event.waitUntil(
-    self.ServiceWorkerRegistration.showNotification('Push Notification',{
+    self.registration.showNotification('Push Notification',{
       body: 'Push notification desu!!',
       icon: 'icons/icon-192x192.png'
     })
