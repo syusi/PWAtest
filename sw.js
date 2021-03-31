@@ -2,6 +2,7 @@
 //ここでのselfは自分自身、つまりsw.jsの事らしい。登録するとそのままオブジェクトになる？
 self.addEventListener('fetch',function(e) {
     //空でもokらしい
+    console.log('fetch URL'+e.request.url);
 });
 
 // 愚直に実装するならこっちhttps://mdn.github.io/pwa-examples/js13kpwa/
@@ -29,14 +30,13 @@ workbox.precaching.precacheAndRoute([
 self.addEventListener('push',function (event) {
   console.log(`[Service worker] push Received. Data: "${event.data.text()}"`);
 
-  // const title = "New Notification!!";
+  event.waitUntil(
+    self.ServiceWorkerRegistration.showNotification('Push Notification',{
+      body: 'Push notification desu!!',
+      icon: 'icons/icon-192x192.png'
+    })
 
-  // const option = {
-  //     body: 'Push notification desu!!',
-  //     icon: 'icons/icon-192x192.png'
-  // }
-
-  // new Notification(title,option);
+  );
 });
 
 // 通知をクリックしたとき
