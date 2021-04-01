@@ -62,11 +62,12 @@ self.addEventListener('push',function (event) {
   );
 });
 
-// 通知をクリックしたとき
+// 通知をクリックしたとき(serviceworker経由の奴でないと発火しないらしい)
 self.addEventListener('notificationclick',function(event) {
   console.log('[Service worker] Notification click Received');
 
   event.notification.close();
-
-  window.open("https://www.google.com", "google");
+  event.waitUntil(
+    clients.openWindow("https://www.google.com")
+  );
 });
