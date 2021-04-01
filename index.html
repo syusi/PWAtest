@@ -17,13 +17,7 @@
     <link rel="manifest" href="./manifest.json">
     <title>色あてゲーム</title>
     <!-- ServiceWorkerの登録 -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js').then((reg) => {
-                console.log('Service worker registered.',reg);
-            });
-        }
-    </script>
+    <script src="./init.js"></script>
 </head>
 <body>
     <section class="container">
