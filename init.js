@@ -1,4 +1,4 @@
-// サーバーを提供してくれるらしい
+// サーバーを提供してくれるらしい、出力されるjsonをendpointに張り付ける
 // https://web-push-codelab.glitch.me/
 
 // ServiceWorkerの登録
