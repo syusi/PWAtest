@@ -27,9 +27,10 @@ if ('serviceWorker' in navigator) {
             });
         });
     }).then((subscription)=>{
-
+        //バックエンドに登録を送信するためのやつ
         console.log('subscription method');
-
+        
+        console.log(JSON.stringify(subscription));
     });
 }
 function urlBase64ToUint8Array(base64String) {
