@@ -40,6 +40,7 @@ if ('serviceWorker' in navigator) {
         };
         fetch(server_url,{
             headers : header,
+            mode: 'cors',
             method: 'POST',
             body: JSON.stringify(subscription)
         });
