@@ -35,7 +35,7 @@ if ('serviceWorker' in navigator) {
         console.log(JSON.stringify(subscription));
         
         let headers = new Headers();
-        headers.set('content-type',application/json);
+        headers.set('content-type','application/json');
 
         fetch(server_url,{
             headers,
