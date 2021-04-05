@@ -7,7 +7,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 workbox.precaching.precacheAndRoute([
   {
     url: 'index.html',
-    revision: '1'
+    revision: '2'
   },
   {
     url: 'style.css',
