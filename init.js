@@ -34,11 +34,12 @@ if ('serviceWorker' in navigator) {
         
         console.log(JSON.stringify(subscription));
         
-        let headers = new Headers();
-        headers.set('content-type','application/json');
-
+        let header = {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        };
         fetch(server_url,{
-            headers,
+            headers : header,
             method: 'POST',
             body: JSON.stringify(subscription)
         });
