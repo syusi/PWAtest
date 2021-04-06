@@ -75,10 +75,9 @@ self.addEventListener('notificationclick',function(event) {
 
   //インスタンス取得
   const notification = event.notification;
-  const url = notification.data.url;
 
   event.notification.close();
   event.waitUntil(
-    clients.openWindow(url)
+    clients.openWindow('https://developers.google.com/web/fundamentals/codelabs/push-notifications')
   );
 });
