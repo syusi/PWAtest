@@ -73,8 +73,12 @@ self.addEventListener('push',function (event) {
 self.addEventListener('notificationclick',function(event) {
   console.log('[Service worker] Notification click Received');
 
+  //インスタンス取得
+  const notification = event.notification;
+  const url = notification.data.url;
+
   event.notification.close();
   event.waitUntil(
-    clients.openWindow("https://www.google.com")
+    clients.openWindow(url)
   );
 });
