@@ -53,10 +53,17 @@ self.addEventListener('fetch',function(e) {
 self.addEventListener('push',function (event) {
   console.log(`[Service worker] push Received. Data: "${event.data.text()}"`);
 
+  try {
+    payload = JSON.parse(event.data.text());    
+  } catch (error) {
+    console.log(error.toString());
+  }
+
   event.waitUntil(
-    self.registration.showNotification('Push Notification',{
-      body: `Push notification "${event.data.text()}"`,
-      icon: 'icons/icon-192x192.png'
+    self.registration.showNotification(payload.title,{
+      body: payload.body,
+      icon: payload.icon,
+      url: payload.url
     })
 
   );
