@@ -57,11 +57,12 @@ self.addEventListener('push',function (event) {
     payload = JSON.parse(event.data.text());    
   } catch (error) {
     console.log(error.toString());
+    return;
   }
   console.log(payload);
   event.waitUntil(
     self.registration.showNotification(payload.title,{
-      body: payload.body,
+      body: payload.body.body,
       icon: payload.icon,
       url: payload.url
     })
