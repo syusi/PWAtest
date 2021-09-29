@@ -52,13 +52,13 @@ self.addEventListener('fetch',function(e) {
 // そのままnotificationはダメ見たいですね。どうやらregistrationが必要みたい。
 self.addEventListener('push',function (event) {
   console.log(`[Service worker] push Received. Data: "${event.data.text()}"`);
-
+  let payload = ''
   try {
     payload = JSON.parse(event.data.text());    
   } catch (error) {
     console.log(error.toString());
   }
-
+  console.log(payload);
   event.waitUntil(
     self.registration.showNotification(payload.title,{
       body: payload.body,
